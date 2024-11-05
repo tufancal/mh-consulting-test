@@ -1,0 +1,20 @@
+image: ubuntu:18.04
+
+variables:
+  ENV_PROD: "mh-portfolio.project-joker.com/"
+
+before_script:
+  - apt-get update -qy
+  - apt-get install -y lftp
+  - apt-get install -y nodejs
+  - apt-get install -y yarn
+  - yarn --version
+
+deploy_production:
+  stage: deploy
+  only:
+    - main
+  script:
+    - echo "Deploy to Production server"
+    - lftp -e "set ssl:verify-certificate no; open $FTP_HOST; user $FTP_USERNAME $FTP_PASSWORD; mirror -X .* -X .*/ --reverse --ignore-size --verbose --delete public/page/ "$ENV_PROD"/dist; bye"
+    - echo "visit https://mh-portfolio.project-joker.com/"
