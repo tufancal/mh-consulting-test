@@ -1,0 +1,51 @@
+---
+import Text from '../atoms/Text.astro';
+import { Icon } from 'astro-icon/components';
+import Wrapper from '../utils/Wrapper.astro';
+
+interface Props {
+  headline: string;
+  copy: string;
+  socials: {
+    icon: 'linkedin' | 'mail';
+    url: string;
+    text: string;
+  }[];
+}
+
+const { headline, copy, socials } = Astro.props;
+---
+
+<Wrapper variant="primary-light">
+  <div class="max-w-6xl lg:max-w-4xl">
+    <Text Htmltag="h2" size="m" text={headline} className="mb-6" isBlack is:raw />
+    <Text Htmltag="p" size="s" className="mb-12" text={copy} />
+    <ul class="relative z-10 m-0 grid list-none gap-4 p-0">
+      {
+        socials.map((social) => (
+          <li class="flex items-center gap-2">
+            <Icon class="min-h-10 min-w-10" name={social.icon} />
+            <a
+              class="font-default font-black hover:underline focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-current"
+              href={social.url}
+            >
+              {social.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="py-12">
+    <div class="relative">
+      <Icon
+        name="logoSameColor"
+        class="h-auto w-[500px] animate-marquee text-mh-yellow-light md:w-[800px] xl:w-[1000px] 2xl:w-[2000px]"
+      />
+      <Icon
+        name="logoSameColor"
+        class="absolute top-0 h-auto w-[500px] animate-marquee2 text-mh-yellow-light md:w-[800px] xl:w-[1000px] 2xl:w-[2000px]"
+      />
+    </div>
+  </div>
+</Wrapper>

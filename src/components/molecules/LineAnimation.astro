@@ -1,0 +1,54 @@
+---
+import Text from '../atoms/Text.astro';
+
+interface Props {
+  texts: string[];
+}
+
+const { texts } = Astro.props;
+
+const lineClass = 'px-2 py-1 bg-mh-yellow w-max';
+---
+
+<div class="relative overflow-hidden">
+  <div class="animate-lineChanging">
+    {
+      texts.map((text, index) => {
+        switch (index) {
+          case 0:
+            return <Text isBlack Htmltag="div" size="xl" text={text} className={lineClass} />;
+          case 1:
+            return (
+              <Text
+                isBlack
+                Htmltag="div"
+                size="xl"
+                text={text}
+                className={`absolute left-0 top-full ${lineClass}`}
+              />
+            );
+          case 2:
+            return (
+              <Text
+                isBlack
+                Htmltag="div"
+                size="xl"
+                text={text}
+                className={`absolute left-0 top-[200%] ${lineClass}`}
+              />
+            );
+
+          default:
+            break;
+        }
+      })
+    }
+    <Text
+      isBlack
+      Htmltag="div"
+      size="xl"
+      text={texts[0]}
+      className={`absolute left-0 top-[300%] ${lineClass}`}
+    />
+  </div>
+</div>

@@ -1,0 +1,48 @@
+---
+import Text from '../atoms/Text.astro';
+import { Icon } from 'astro-icon/components';
+import Wrapper from '../utils/Wrapper.astro';
+
+interface Props {
+  overline?: string;
+  headline: string;
+  list: {
+    icon: string;
+    headline: string;
+    copy: string;
+  }[];
+}
+
+const { overline, headline, list } = Astro.props;
+---
+
+<Wrapper variant="light">
+  {
+    overline && (
+      <Text Htmltag="div" size="s" text={overline} hasLetterSpacing className="uppercase mb-6" />
+    )
+  }
+  <Text Htmltag="h2" size="m" text={headline} isBlack className="mb-12 xl:w-4/6" />
+  <ol class="grid list-none gap-12 bg-white xl:grid-cols-3">
+    {
+      list.map((item) => (
+        <li>
+          <div class="mb-4 flex items-center gap-4 lg:gap-6">
+            <span class="flex h-20 w-20 items-center justify-center rounded-full outline outline-mh-yellow">
+              <Icon class="h-8 w-14" name={item.icon} />
+            </span>
+            <Text
+              Htmltag="h3"
+              size="m"
+              text={`${item.headline}<span class="text-mh-yellow">.</span>`}
+              isBlack
+              is:raw
+            />
+          </div>
+          <Text Htmltag="p" size="s" text={item.copy} />
+        </li>
+      ))
+    }
+  </ol>
+</Wrapper>
+<section class="mx-auto mb-20 max-w-wrapper px-5 lg:px-16 2xl:px-36"></section>

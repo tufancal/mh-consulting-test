@@ -1,0 +1,43 @@
+---
+interface Props {
+  Htmltag: 'h1' | 'h2' | 'h3' | 'h4' | 'div' | 'p' | 'span';
+  size: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+  text?: string;
+  className?: string;
+  isBlack?: boolean;
+  hasLetterSpacing?: boolean;
+}
+
+let textSizeClass = '';
+
+switch (Astro.props.size) {
+  case 'xxs':
+    textSizeClass = 'text-xxs 2xl:text-xxs-desktop';
+    break;
+  case 'xs':
+    textSizeClass = 'text-xs 2xl:text-xs-desktop';
+    break;
+  case 's':
+    textSizeClass = 'text-s 2xl:text-s-desktop';
+    break;
+  case 'm':
+    textSizeClass = 'text-m 2xl:text-m-desktop';
+    break;
+  case 'l':
+    textSizeClass = 'text-l 2xl:text-l-desktop';
+    break;
+  case 'xl':
+    textSizeClass = 'text-xl 2xl:text-xl-desktop';
+    break;
+}
+
+const fontWeightClass = Astro.props.isBlack ? 'font-black' : 'font-normal';
+const letterSpacingClass = Astro.props.hasLetterSpacing ? 'tracking-wider' : '';
+
+const { Htmltag, text, className } = Astro.props;
+---
+
+<Htmltag
+  class:list={[textSizeClass, 'font-default', fontWeightClass, letterSpacingClass, className]}
+  set:html={text}
+/>

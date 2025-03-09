@@ -1,0 +1,42 @@
+---
+import LineAnimation from '../molecules/LineAnimation.astro';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import type { ImageMetadata } from 'astro';
+import Wrapper from '../utils/Wrapper.astro';
+
+import type { ComponentProps } from 'astro/types';
+
+type LineAnimationProps = ComponentProps<typeof LineAnimation>;
+
+interface Props {
+  animationTexts: LineAnimationProps['texts'];
+  headline: string;
+  image: {
+    src: ImageMetadata;
+    alt: string;
+  };
+}
+
+const { animationTexts, headline, image } = Astro.props;
+---
+
+<Wrapper variant="light" className="relative mb-48">
+  <div class="-mx-5 lg:hidden">
+    <Image src={image.src} alt={image.alt} class="mb-6" loading="eager" fetchpriority="high" />
+  </div>
+  <div class="lg:grid lg:grid-cols-[2fr,1fr]">
+    <h1 class="mb-16 font-default text-xl font-black 2xl:text-xl-desktop">
+      <LineAnimation texts={animationTexts} />{headline}<span class="text-mh-yellow">.</span>
+    </h1>
+    <Image
+      src={image.src}
+      alt={image.alt}
+      loading="eager"
+      fetchpriority="high"
+      class="absolute right-12 top-1/2 hidden aspect-square h-auto w-[300px] -translate-y-1/2 rounded-full object-cover outline outline-2 outline-offset-8 outline-mh-yellow lg:block 2xl:-right-[30%] 2xl:w-[787px] 3xl:-right-[20%]"
+    />
+  </div>
+
+  <Icon name="chevron" class="mx-auto mb-20 h-10 w-10 animate-bounce text-mh-yellow" />
+</Wrapper>

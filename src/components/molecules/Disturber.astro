@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { Icon } from 'astro-icon/components';
+import Wrapper from '../utils/Wrapper.astro';
+
+import Text from '../atoms/Text.astro';
+
+interface Props {
+  image: {
+    src: ImageMetadata;
+    alt: string;
+  };
+  copy: string;
+  link: {
+    href: string;
+    text: string;
+  };
+}
+
+const { image, copy, link } = Astro.props;
+---
+
+<Wrapper
+  variant="primary"
+  className="relative pb-12 pt-6 lg:pb-24 lg:pt-16 xl:py-0"
+  hasOverflow={false}
+>
+  <div class="bg-mh-yellow-light">
+    <div class="absolute -top-[180px] left-1/2 w-full -translate-x-1/2 lg:top-0 2xl:-top-[220px]">
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={392}
+        height={392}
+        class="mx-auto h-40 w-40 rounded-full object-cover outline outline-2 outline-offset-8 outline-mh-yellow lg:mx-0 lg:-mt-48 lg:h-56 lg:w-56 2xl:h-96 2xl:w-96"
+      />
+    </div>
+    <div class="lg:mx-auto lg:max-w-3xl">
+      <Text Htmltag="p" size="s" text={copy} className="mb-4 italic md:text-s-desktop" />
+      <a
+        class="ml-auto flex w-max items-center gap-3 bg-mh-yellow px-3 py-2 font-default uppercase"
+        href="/">Alle Leistungen <Icon name="chevron" class="-rotate-90" /></a
+      >
+    </div>
+  </div>
+</Wrapper>

@@ -1,0 +1,39 @@
+---
+import Text from '../atoms/Text.astro';
+import Wrapper from '../utils/Wrapper.astro';
+
+interface Props {
+  overline?: string;
+  headline: string;
+  list: {
+    headline: string;
+    copy: string;
+  }[];
+}
+
+const { overline, headline, list } = Astro.props;
+---
+
+<Wrapper variant="light" className="mb-12">
+  {
+    overline && (
+      <Text Htmltag="div" size="s" text={overline} hasLetterSpacing className="uppercase mb-6" />
+    )
+  }
+  <Text Htmltag="h2" size="m" text={headline} isBlack className="mb-12 xl:w-4/6" />
+  <ol class="grid list-none gap-6 bg-mh-yellow-extra-extra-light py-12 md:grid-cols-2 md:p-12">
+    {
+      list.map((item, index) => (
+        <li>
+          <div class="mb-4 flex items-center gap-4 lg:gap-6">
+            <div class="font-default text-2xl font-black text-mh-yellow">
+              {(index + 1).toString().padStart(2, '0')}
+            </div>
+            <Text Htmltag="h3" size="s" text={item.headline} isBlack className="uppercase" />
+          </div>
+          <Text Htmltag="p" size="s" text={item.copy} className="pl-11" />
+        </li>
+      ))
+    }
+  </ol>
+</Wrapper>

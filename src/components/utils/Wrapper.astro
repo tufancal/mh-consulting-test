@@ -1,0 +1,37 @@
+---
+interface Props {
+  id?: string;
+  className?: string;
+  variant: 'light' | 'primary' | 'primary-light';
+  hasOverflow?: boolean;
+}
+
+let backgroundVariantClass = '';
+switch (Astro.props.variant) {
+  case 'light':
+    backgroundVariantClass = 'bg-white';
+    break;
+  case 'primary':
+    backgroundVariantClass = 'bg-mh-yellow-light';
+    break;
+  case 'primary-light':
+    backgroundVariantClass = 'bg-mh-yellow-extra-extra-light';
+    break;
+}
+
+const { className, id, hasOverflow = true } = Astro.props;
+const overflowClass = hasOverflow ? 'overflow-hidden' : '';
+---
+
+<section
+  id={id}
+  class:list={[
+    'relative px-5 pt-12 lg:px-16 xl:py-32 2xl:px-36',
+    backgroundVariantClass,
+    overflowClass,
+  ]}
+>
+  <div class:list={[className, 'max-w-wrapper', 'mx-auto']}>
+    <slot />
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+import { Icon } from 'astro-icon/components';
+import Text from '../atoms/Text.astro';
+
+interface Props {
+  statement: string;
+}
+
+const { statement } = Astro.props;
+---
+
+<section class="bg-mh-yellow-extra-extra-light px-5 py-12 lg:px-16 2xl:px-32 2xl:py-28">
+  <div class="mx-auto flex max-w-wrapper 2xl:gap-6">
+    <Icon
+      name="chevron"
+      class="min-h-10 min-w-10 -rotate-90 text-mh-yellow 2xl:min-h-16 2xl:min-w-16"
+    />
+    <Text
+      Htmltag="h2"
+      size="l"
+      text={`${statement}<span class="text-mh-yellow">.</span>`}
+      isBlack
+    />
+  </div>
+</section>
