@@ -1,0 +1,38 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import Wrapper from '../utils/Wrapper.astro';
+import Text from '../atoms/Text.astro';
+
+interface Props {
+  headline: string;
+  logos: {
+    src: ImageMetadata;
+    alt: string;
+  }[];
+}
+
+const { headline, logos } = Astro.props;
+---
+
+<Wrapper variant="light">
+  <Text Htmltag="h2" size="l" text={headline} isBlack className="mb-12 xl:w-4/6" />
+  <div class="flex w-full items-center overflow-hidden py-8" aria-label="Company Logos">
+    <div class="flex min-w-max animate-[logo-row-scroll_20s_linear_infinite] gap-12 xl:gap-24">
+      {logos.map((logo) => <Image src={logo.src} alt={logo.alt} class="h-20 w-auto" />)}
+      <!-- Duplicate for seamless animation -->
+      {logos.map((logo) => <Image src={logo.src} alt={logo.alt} class="h-20 w-auto" />)}
+    </div>
+  </div>
+</Wrapper>
+
+<style>
+  @keyframes logo-row-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>

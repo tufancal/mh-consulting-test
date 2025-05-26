@@ -2,19 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 import OrderedList from '../components/molecules/OrderedList.astro';
 import IconRow from '../components/molecules/IconRow.astro';
-import ImageTextTeaser from '../components/molecules/ImageTextTeaser.astro';
 import Contact from '../components/molecules/Contact.astro';
 import Footer from '../components/atoms/Footer.astro';
 import Stage from '../components/organisms/Stage.astro';
 import Disturber from '../components/molecules/Disturber.astro';
 import DisturberText from '../components/molecules/DisturberText.astro';
 
-import TeaserOne from '../assets/teaser_1.jpeg';
 import StageImage from '../assets/stage_image.jpeg';
 import DisturberImage from '../assets/disturber.jpeg';
+import LogoRow from '../components/molecules/LogoRow.astro';
+import emeaLogo from '../assets/emea_logo.png';
+import fpLogo from '../assets/fp_logo.png';
+import pharmaLogo from '../assets/pharma_logo.png';
+import tacticsLogo from '../assets/tactics_logo.jpeg';
 ---
 
 <Layout title="MH Consulting" description="MH Consulting">
+  <DisturberText statement="Ihr Partner im Online-Marketing und in digitalen Prozessen" />
   <Stage
     animationTexts={['Strategien,', 'Analysen,', 'Optimierungen']}
     headline="die einfach funktionieren – passgenau und flexibel"
@@ -22,9 +26,9 @@ import DisturberImage from '../assets/disturber.jpeg';
   />
   <Disturber
     image={{ src: DisturberImage, alt: 'This is an alt text' }}
-    copy="“Beratung, welche zu Ihnen passt und keine unnötigen Kapazitäten in Ihrem Unternehmen frisst. Ich berate und unterstütze Sie gerne im Aufbau Ihrer Marketing-Strategie, der Entscheidung in einem digitalen Prozess und unterstütze gerne als externer Berater Ihre Kunden im Team als Freelancer. “"
+    copy="“Individuelle Beratung und agile Projektunterstützung, exakt dort, wo Sie diese brauchen. Ich entwickle gemeinsam mit Ihnen kraftvolle Marketingstrategien, begleite Sie bei zukunftsweisenden digitalen Entscheidungen und führe Ihre Projekte zuverlässig und zielgerichtet zum Erfolg.“"
+    link={{ href: '/', text: 'Alle Leistungen' }}
   />
-  <DisturberText statement="Ihr Partner in Marketing & digitaler Transformation" />
   <IconRow
     overline="Leistungen"
     headline="Steigerung der Kundenzufriedenheit durch transformative Design Thinking."
@@ -44,6 +48,15 @@ import DisturberImage from '../assets/disturber.jpeg';
         headline: 'Founder',
         copy: 'Beratung, welche zu Ihnen passt und keine unnötigen Kapazitäten in Ihrem Unternehmen frisst. Ich berate und unterstütze Sie gerne im Aufbau Ihrer Marketing-Strategie, der Entscheidung in einem digitalen Prozess und unterstütze gerne als externer Berater Ihre Kunden im Team als Freelancer. Lorem ipsum dolor sit.',
       },
+    ]}
+  />
+  <LogoRow
+    headline="Partner & Kunden"
+    logos={[
+      { src: emeaLogo, alt: 'EMEA Trade Logo' },
+      { src: fpLogo, alt: 'Fundraising Partner Logo' },
+      { src: pharmaLogo, alt: 'Kranich Pharma Logo' },
+      { src: tacticsLogo, alt: 'BrandTactics Logo' },
     ]}
   />
   <OrderedList
@@ -67,14 +80,6 @@ import DisturberImage from '../assets/disturber.jpeg';
         copy: 'Beratung und Umsetzung von digitalen Transformationsprozessen und der Einführung neuer Technologien.',
       },
     ]}
-  />
-  <ImageTextTeaser
-    image={{
-      src: TeaserOne,
-      alt: 'Alt Text | MH Consulting',
-    }}
-    headline="Effizient, flexibel & nachhaltig"
-    copy="Ich nutze transformative Prozesse, um auch mit komplexen Herausforderungen umzugehen. Unermüdliches Engagement und beispiellose Strategien aus – so erzielen wir gemeinsam wirkungsvolle Ergebnisse, die Ihre Kundenzufriedenheit steigern."
   />
   <Contact
     headline={`&lt;Kontakt&gt; Sie möchten Hallo sagen<span class="text-mh-yellow">?</span>`}
