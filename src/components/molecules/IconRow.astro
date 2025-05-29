@@ -16,7 +16,7 @@ interface Props {
 const { overline, headline, list } = Astro.props;
 ---
 
-<Wrapper variant="light">
+<Wrapper id="leistungen" variant="light">
   {
     overline && (
       <Text Htmltag="div" size="s" text={overline} hasLetterSpacing className="uppercase mb-6" />
@@ -29,7 +29,7 @@ const { overline, headline, list } = Astro.props;
         <li>
           <div class="mb-4 flex items-center gap-4 lg:gap-6">
             <span class="flex h-20 w-20 items-center justify-center rounded-full outline outline-mh-yellow">
-              <Icon class="h-8 w-14" name={item.icon} />
+              <Icon class="h-12 w-12" name={item.icon} />
             </span>
             <Text
               Htmltag="h3"
@@ -39,9 +39,39 @@ const { overline, headline, list } = Astro.props;
               is:raw
             />
           </div>
-          <Text Htmltag="p" size="s" text={item.copy} />
+          <Text className="line-clamp-2 js_line-clamp mb-4" Htmltag="p" size="s" text={item.copy} />
+          <button class="js_button font-default text-s font-bold hover:underline lg:text-s-desktop">
+            Mehr erfahren
+          </button>
         </li>
       ))
     }
   </ol>
 </Wrapper>
+
+<script>
+  const SELECTORS = {
+    lineClamps: '.js_line-clamp',
+    buttons: '.js_button',
+  };
+
+  const TEXTS = {
+    button: {
+      open: 'Mehr erfahren',
+      close: 'Weniger erfahren',
+    },
+  };
+
+  const buttons = document.querySelectorAll(SELECTORS.buttons);
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const lineClamp = button.previousElementSibling;
+
+      if (lineClamp) {
+        lineClamp.classList.toggle('line-clamp-none');
+        button.textContent =
+          button.textContent?.trim() === TEXTS.button.open ? TEXTS.button.close : TEXTS.button.open;
+      }
+    });
+  });
+</script>

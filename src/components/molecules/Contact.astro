@@ -16,7 +16,7 @@ interface Props {
 const { headline, copy, socials } = Astro.props;
 ---
 
-<Wrapper variant="primary-light">
+<Wrapper id="kontakt" variant="primary-light">
   <div class="max-w-6xl lg:max-w-4xl">
     <Text Htmltag="h2" size="m" text={headline} className="mb-6" isBlack is:raw />
     <Text Htmltag="p" size="s" className="mb-12" text={copy} />
@@ -26,7 +26,7 @@ const { headline, copy, socials } = Astro.props;
           <li class="flex items-center gap-2">
             <Icon class="min-h-10 min-w-10" name={social.icon} />
             <a
-              class="font-default font-black hover:underline focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-current"
+              class="lg:text-xs-desktop font-default text-xs font-black hover:underline focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-current"
               href={social.url}
             >
               {social.text}

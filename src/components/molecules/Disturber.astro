@@ -22,8 +22,9 @@ const { image, copy, link } = Astro.props;
 ---
 
 <Wrapper
+  id="ueber-mich"
   variant="primary"
-  className="relative pb-12 pt-6 lg:pb-24 lg:pt-16 xl:py-0"
+  className="relative pt-6 pb-12 lg:pt-16 lg:pb-24 xl:py-0"
   hasOverflow={false}
 >
   <div class="bg-mh-yellow-light">
@@ -33,14 +34,14 @@ const { image, copy, link } = Astro.props;
         alt={image.alt}
         width={392}
         height={392}
-        class="mx-auto h-40 w-40 rounded-full object-cover outline outline-2 outline-offset-8 outline-mh-yellow lg:mx-0 lg:-mt-48 lg:h-56 lg:w-56 2xl:h-96 2xl:w-96"
+        class="outline-mh-yellow mx-auto h-40 w-40 rounded-full object-cover outline-2 outline-offset-8 lg:mx-0 lg:-mt-48 lg:h-56 lg:w-56 2xl:h-96 2xl:w-96"
       />
     </div>
     <div class="lg:mx-auto lg:max-w-3xl">
-      <Text Htmltag="p" size="s" text={copy} className="mb-4 italic md:text-s-desktop" />
+      <Text Htmltag="p" size="s" text={copy} className="md:text-s-desktop mb-4 italic" />
       <a
-        class="ml-auto flex w-max items-center gap-3 bg-mh-yellow px-3 py-2 font-default uppercase"
-        href="/">Alle Leistungen <Icon name="chevron" class="-rotate-90" /></a
+        class="bg-mh-yellow font-default ml-auto flex w-max items-center gap-3 px-3 py-2 uppercase"
+        href={link.href}>{link.text} <Icon name="chevron" class="-rotate-90" /></a
       >
     </div>
   </div>

@@ -10,7 +10,7 @@ const linkClass =
 
 <header
   id="js_header"
-  class="relative box-border flex items-center justify-between gap-6 p-5 xl:mx-auto xl:max-w-wrapper xl:py-12"
+  class="relative box-border flex items-center justify-between gap-6 p-5 xl:mx-auto xl:max-w-wrapper xl:justify-start xl:gap-20 xl:py-12"
 >
   <a href="/">
     <Icon name="logo" class="h-auto w-52 xl:w-80" />
@@ -27,83 +27,90 @@ const linkClass =
     </button>
   </div>
 
-  <div class="absolute right-0 top-0 h-lvh w-lvw overflow-hidden xl:static xl:h-full xl:w-max">
+  <div class="absolute right-0 top-0 h-lvh w-lvw overflow-hidden xl:static xl:h-full xl:w-full">
     <nav
       id="js_navigation"
       class="absolute bottom-0 left-0 right-0 z-10 translate-x-full bg-white px-5 py-10 transition-transform duration-0 xl:static xl:translate-x-0 xl:px-0 xl:py-0 xl:duration-0"
     >
-      <ul class="flex h-full flex-col items-center justify-center gap-8 xl:flex-row">
+      <ul class="flex h-full flex-col items-center gap-8 xl:flex-row">
         <li>
-          <a href="/" class={linkClass}>Über mich</a>
+          <a href="#ueber-mich" class={linkClass}>Über mich</a>
         </li>
         <li>
-          <a href="/" class={linkClass}>Leistungen</a>
+          <a href="#leistungen" class={linkClass}>Leistungen</a>
         </li>
         <li>
-          <a href="/" class={linkClass}>Kontakt</a>
+          <a href="#kontakt" class={linkClass}>Kontakt</a>
+        </li>
+        <li class="grid flex-1 items-end justify-end">
+          <a href="/" class={linkClass}
+            ><Icon name="email" class="h-10 w-10 lg:h-20 lg:w-20" /><span class="sr-only"
+              >Email | MH Consulting</span
+            ></a
+          >
         </li>
       </ul>
     </nav>
   </div>
-</header>
 
-<script>
-  const burgerMenu = () => {
-    const burger = document.getElementById('js_burger');
-    const close = document.getElementById('js_close');
-    const navigation = document.getElementById('js_navigation');
-    const header = document.getElementById('js_header');
-    const hideClass = 'translate-x-full';
-    const scrollLockClass = 'overflow-hidden';
-    const durationClass = ['duration-0', 'duration-500'];
-    const links = document.querySelectorAll('.js_link');
+  <script>
+    const burgerMenu = () => {
+      const burger = document.getElementById('js_burger');
+      const close = document.getElementById('js_close');
+      const navigation = document.getElementById('js_navigation');
+      const header = document.getElementById('js_header');
+      const hideClass = 'translate-x-full';
+      const scrollLockClass = 'overflow-hidden';
+      const durationClass = ['duration-0', 'duration-500'];
+      const links = document.querySelectorAll('.js_link');
 
-    if (!burger || !close || !navigation || !header) {
-      return;
-    }
+      if (!burger || !close || !navigation || !header) {
+        return;
+      }
 
-    const updateNavigationTop = () => {
-      const headerHeight = header.clientHeight;
-      navigation.style.top = `${headerHeight}px`;
-    };
+      const updateNavigationTop = () => {
+        const headerHeight = header.clientHeight;
+        navigation.style.top = `${headerHeight}px`;
+      };
 
-    const closeNavigation = () => {
-      burger.classList.toggle(hideClass);
-      close.classList.toggle(hideClass);
-      navigation.classList.toggle(hideClass);
-      document.documentElement.classList.toggle(scrollLockClass);
+      const closeNavigation = () => {
+        burger.classList.toggle(hideClass);
+        close.classList.toggle(hideClass);
+        navigation.classList.toggle(hideClass);
+        document.documentElement.classList.toggle(scrollLockClass);
 
-      setTimeout(() => {
-        navigation.classList.replace(durationClass[1], durationClass[0]);
-      }, 500);
-    };
+        setTimeout(() => {
+          navigation.classList.replace(durationClass[1], durationClass[0]);
+        }, 500);
+      };
 
-    updateNavigationTop();
+      updateNavigationTop();
 
-    window.addEventListener('resize', updateNavigationTop);
+      window.addEventListener('resize', updateNavigationTop);
 
-    burger.addEventListener('click', () => {
-      burger.classList.toggle(hideClass);
-      close.classList.toggle(hideClass);
-      navigation.classList.toggle(hideClass);
-      navigation.classList.replace(durationClass[0], durationClass[1]);
-      document.documentElement.classList.toggle(scrollLockClass);
-    });
-
-    close.addEventListener('click', () => {
-      closeNavigation();
-    });
-
-    links.forEach((link) => {
-      link.addEventListener('click', () => {
-        if (!navigation.classList.contains(hideClass)) {
-          setTimeout(() => {
-            closeNavigation();
-          }, 350);
-        }
+      burger.addEventListener('click', () => {
+        burger.classList.toggle(hideClass);
+        close.classList.toggle(hideClass);
+        navigation.classList.toggle(hideClass);
+        navigation.classList.replace(durationClass[0], durationClass[1]);
+        document.documentElement.classList.toggle(scrollLockClass);
       });
-    });
-  };
 
-  burgerMenu();
-</script>
+      close.addEventListener('click', () => {
+        closeNavigation();
+      });
+
+      links.forEach((link) => {
+        link.addEventListener('click', () => {
+          if (!navigation.classList.contains(hideClass)) {
+            setTimeout(() => {
+              closeNavigation();
+            }, 350);
+          }
+        });
+      });
+    };
+
+    burgerMenu();
+  </script>
+</header>
