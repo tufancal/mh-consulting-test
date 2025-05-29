@@ -25,7 +25,7 @@ const { animationTexts, headline, image } = Astro.props;
   <div class="-mx-5 lg:hidden">
     <Image src={image.src} alt={image.alt} class="mb-6" loading="eager" fetchpriority="high" />
   </div>
-  <div class="lg:grid lg:grid-cols-[2fr,1fr]">
+  <div class="lg:grid lg:grid-cols-[2fr_1fr]">
     <h2 class="mb-16 font-default text-xl font-black 2xl:text-xl-desktop">
       <LineAnimation texts={animationTexts} />{headline}<span class="text-mh-yellow">.</span>
     </h2>

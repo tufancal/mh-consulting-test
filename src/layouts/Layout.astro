@@ -7,6 +7,7 @@ interface Props {
 const { title, description } = Astro.props;
 
 import Header from '../components/molecules/Header.astro';
+import '../styles/global.css';
 ---
 
 <!doctype html>
@@ -45,27 +46,4 @@ import Header from '../components/molecules/Header.astro';
 </html>
 
 <style is:global>
-  @font-face {
-    font-family: 'Merriweather';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/fonts/Merriweather-Regular.woff2) format('woff2');
-  }
-
-  @font-face {
-    font-family: 'Merriweather';
-    font-style: italic;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/fonts/Merriweather-Italic.woff2) format('woff2');
-  }
-
-  @font-face {
-    font-family: 'Merriweather';
-    font-style: normal;
-    font-weight: 900;
-    font-display: swap;
-    src: url(/fonts/Merriweather-Black.woff2) format('woff2');
-  }
 </style>
