@@ -7,11 +7,12 @@ interface Props {
 const { title, description } = Astro.props;
 
 import Header from '../components/molecules/Header.astro';
+import Footer from '../components/atoms/Footer.astro';
 import '../styles/global.css';
 ---
 
 <!doctype html>
-<html lang="de">
+<html class="scroll-smooth" lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -42,8 +43,19 @@ import '../styles/global.css';
   <body>
     <Header />
     <slot />
+    <Footer
+      links={[
+        {
+          url: './privacy',
+          text: 'Datenschutz',
+        },
+        {
+          url: './imprint',
+          text: 'Impressum',
+        },
+      ]}
+    />
   </body>
 </html>
 
-<style is:global>
-</style>
+<style is:global></style>

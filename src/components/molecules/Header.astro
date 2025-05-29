@@ -10,9 +10,9 @@ const linkClass =
 
 <header
   id="js_header"
-  class="relative box-border flex items-center justify-between gap-6 p-5 xl:mx-auto xl:max-w-wrapper xl:justify-start xl:gap-20 xl:py-12"
+  class="xl:max-w-wrapper relative box-border flex items-center justify-between gap-6 p-5 xl:mx-auto xl:justify-start xl:gap-20 xl:py-12"
 >
-  <a href="/">
+  <a class="relative z-10" href="/">
     <Icon name="logo" class="h-auto w-52 xl:w-80" />
     <span class="sr-only">Home | MH Consulting</span>
   </a>
@@ -27,20 +27,20 @@ const linkClass =
     </button>
   </div>
 
-  <div class="absolute right-0 top-0 h-lvh w-lvw overflow-hidden xl:static xl:h-full xl:w-full">
+  <div class="absolute top-0 right-0 h-lvh w-lvw overflow-hidden xl:static xl:h-full xl:w-full">
     <nav
       id="js_navigation"
-      class="absolute bottom-0 left-0 right-0 z-10 translate-x-full bg-white px-5 py-10 transition-transform duration-0 xl:static xl:translate-x-0 xl:px-0 xl:py-0 xl:duration-0"
+      class="absolute right-0 bottom-0 left-0 z-10 translate-x-full bg-white px-5 py-10 transition-transform duration-0 xl:static xl:translate-x-0 xl:px-0 xl:py-0 xl:duration-0"
     >
-      <ul class="flex h-full flex-col items-center gap-8 xl:flex-row">
+      <ul class="flex h-1/2 flex-col items-center gap-8 xl:h-full xl:flex-row">
         <li>
-          <a href="#ueber-mich" class={linkClass}>Über mich</a>
+          <a href="./#ueber-mich" class={linkClass}>Über mich</a>
         </li>
         <li>
-          <a href="#leistungen" class={linkClass}>Leistungen</a>
+          <a href="./#leistungen" class={linkClass}>Leistungen</a>
         </li>
         <li>
-          <a href="#kontakt" class={linkClass}>Kontakt</a>
+          <a href="./#kontakt" class={linkClass}>Kontakt</a>
         </li>
         <li class="grid flex-1 items-end justify-end">
           <a href="/" class={linkClass}
