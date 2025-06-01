@@ -26,7 +26,7 @@ const { animationTexts, headline, image } = Astro.props;
     <Image src={image.src} alt={image.alt} class="mb-6" loading="eager" fetchpriority="high" />
   </div>
   <div class="lg:grid lg:grid-cols-[2fr_1fr]">
-    <h2 class="mb-16 font-default text-xl font-black 2xl:text-xl-desktop">
+    <h2 class="font-default 2xl:text-xl-desktop mb-16 text-xl font-black">
       <LineAnimation texts={animationTexts} />{headline}<span class="text-mh-yellow">.</span>
     </h2>
     <Image
@@ -34,9 +34,10 @@ const { animationTexts, headline, image } = Astro.props;
       alt={image.alt}
       loading="eager"
       fetchpriority="high"
-      class="absolute right-12 top-1/2 hidden aspect-square h-auto w-[300px] -translate-y-1/2 rounded-full object-cover outline outline-2 outline-offset-8 outline-mh-yellow lg:block 2xl:-right-[30%] 2xl:w-[787px] 3xl:-right-[20%]"
+      densities={[0.5, 1, 1.5, 2]}
+      class="outline-mh-yellow 3xl:-right-[20%] absolute top-1/2 right-12 hidden aspect-square h-auto w-[300px] -translate-y-1/2 rounded-full object-cover outline-2 outline-offset-8 lg:block 2xl:-right-[30%] 2xl:w-[787px]"
     />
   </div>
 
-  <Icon name="chevron" class="mx-auto mb-20 h-10 w-10 animate-bounce text-mh-yellow" />
+  <Icon name="chevron" class="text-mh-yellow mx-auto mb-20 h-10 w-10 animate-bounce" />
 </Wrapper>
