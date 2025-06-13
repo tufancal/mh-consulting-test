@@ -28,6 +28,8 @@ const { headline, copy, socials } = Astro.props;
             <a
               class="lg:text-xs-desktop font-default text-xs font-black hover:underline focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-current"
               href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {social.text}
             </a>
@@ -40,11 +42,11 @@ const { headline, copy, socials } = Astro.props;
     <div class="relative">
       <Icon
         name="logoSameColor"
-        class="h-auto w-[500px] animate-marquee text-mh-yellow-light md:w-[800px] xl:w-[1000px] 2xl:w-[2000px]"
+        class="animate-marquee text-mh-yellow-light h-auto w-[500px] md:w-[800px] xl:w-[1000px] 2xl:w-[2000px]"
       />
       <Icon
         name="logoSameColor"
-        class="absolute top-0 h-auto w-[500px] animate-marquee2 text-mh-yellow-light md:w-[800px] xl:w-[1000px] 2xl:w-[2000px]"
+        class="animate-marquee2 text-mh-yellow-light absolute top-0 h-auto w-[500px] md:w-[800px] xl:w-[1000px] 2xl:w-[2000px]"
       />
     </div>
   </div>
