@@ -23,7 +23,14 @@ const { animationTexts, headline, image } = Astro.props;
 
 <Wrapper variant="light" className="relative">
   <div class="-mx-5 lg:hidden">
-    <Image src={image.src} alt={image.alt} class="mb-6" loading="eager" fetchpriority="high" />
+    <Image
+      src={image.src}
+      alt={image.alt}
+      class="mb-6"
+      loading="eager"
+      fetchpriority="high"
+      decoding="sync"
+    />
   </div>
   <div class="lg:grid lg:grid-cols-[2fr_1fr]">
     <h2 class="font-default 2xl:text-xl-desktop mb-16 text-xl font-black">
