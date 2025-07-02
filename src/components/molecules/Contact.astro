@@ -16,7 +16,7 @@ interface Props {
 const { headline, copy, socials } = Astro.props;
 ---
 
-<Wrapper id="kontakt" variant="primary-light">
+<Wrapper id="kontakt" variant="primary-light" className="pt-20 xl:pt-40" hasOverflow>
   <div class="max-w-6xl lg:max-w-4xl">
     <Text Htmltag="h2" size="m" text={headline} className="mb-6" isBlack is:raw />
     <Text Htmltag="p" size="s" className="mb-12" text={copy} />

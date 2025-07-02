@@ -4,6 +4,7 @@ interface Props {
   className?: string;
   variant: 'light' | 'primary' | 'primary-light';
   hasOverflow?: boolean;
+  hasOverflow2xl?: boolean;
 }
 
 let backgroundVariantClass = '';
@@ -19,17 +20,21 @@ switch (Astro.props.variant) {
     break;
 }
 
-const { className, id, hasOverflow = true } = Astro.props;
+const { className, id, hasOverflow = false, hasOverflow2xl = false } = Astro.props;
 const overflowClass = hasOverflow ? 'overflow-hidden' : '';
+const overflow2xlClass = hasOverflow2xl ? '2xl:overflow-hidden' : '';
 ---
 
 <section
   id={id}
-  class:list={['relative px-5 lg:px-16 2xl:px-36', backgroundVariantClass, overflowClass]}
+  class:list={[
+    'relative px-5 lg:px-16 2xl:px-36',
+    overflowClass,
+    overflow2xlClass,
+    backgroundVariantClass,
+  ]}
 >
-  <div
-    class:list={['max-w-wrapper', 'mx-auto', 'mt-12', 'mb-12', 'xl:mt-32', 'xl:pb-32', className]}
-  >
+  <div class:list={['max-w-wrapper', 'mx-auto', 'mb-12', 'xl:mb-40', className]}>
     <slot />
   </div>
 </section>
