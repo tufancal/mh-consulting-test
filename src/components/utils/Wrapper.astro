@@ -25,13 +25,11 @@ const overflowClass = hasOverflow ? 'overflow-hidden' : '';
 
 <section
   id={id}
-  class:list={[
-    'relative mb-12 px-5 pt-12 lg:px-16 xl:py-32 2xl:px-36',
-    backgroundVariantClass,
-    overflowClass,
-  ]}
+  class:list={['relative px-5 lg:px-16 2xl:px-36', backgroundVariantClass, overflowClass]}
 >
-  <div class:list={[className, 'max-w-wrapper', 'mx-auto']}>
+  <div
+    class:list={['max-w-wrapper', 'mx-auto', 'mt-12', 'mb-12', 'xl:mt-32', 'xl:pb-32', className]}
+  >
     <slot />
   </div>
 </section>

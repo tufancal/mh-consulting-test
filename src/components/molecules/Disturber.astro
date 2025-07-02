@@ -21,14 +21,11 @@ interface Props {
 const { image, copy, link } = Astro.props;
 ---
 
-<Wrapper
-  id="ueber-mich"
-  variant="primary"
-  className="relative pt-6 pb-12 lg:pt-16 lg:pb-24 xl:py-0"
-  hasOverflow={false}
->
+<Wrapper variant="primary" className="relative !mt-0 py-12 lg:py-24 xl:pt-48" hasOverflow={false}>
   <div class="bg-mh-yellow-light">
-    <div class="absolute -top-[180px] left-1/2 w-full -translate-x-1/2 lg:top-0 2xl:-top-[220px]">
+    <div
+      class="xl: absolute -top-[130px] left-1/2 w-full -translate-x-1/2 lg:top-12 lg:left-12 lg:translate-none xl:-top-[50px]"
+    >
       <Image
         src={image.src}
         alt={image.alt}
