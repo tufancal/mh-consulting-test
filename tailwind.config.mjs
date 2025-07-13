@@ -35,7 +35,7 @@ export default {
       animation: {
         marquee: 'marquee 8s linear infinite',
         marquee2: 'marquee2 8s linear infinite',
-        lineChanging: 'lineChanging 4.4s linear 2s infinite',
+        lineChanging: 'lineChanging 8s linear 1s infinite',
       },
       keyframes: {
         marquee: {
@@ -48,13 +48,14 @@ export default {
         },
         lineChanging: {
           '0%': { transform: 'translateY(0)' },
-          '15%': { transform: 'translateY(0)' },
+          '20%': { transform: 'translateY(0)' },
           '25%': { transform: 'translateY(-100%)' },
-          '40%': { transform: 'translateY(-100%)' },
+          '45%': { transform: 'translateY(-100%)' },
           '50%': { transform: 'translateY(-200%)' },
           '70%': { transform: 'translateY(-200%)' },
-          '80%': { transform: 'translateY(-300%)' },
-          '100%': { transform: 'translateY(-300%)' },
+          '75%': { transform: 'translateY(-300%)' },
+          '95%': { transform: 'translateY(-300%)' },
+          '100%': { transform: 'translateY(-400%)' },
         },
       },
       screens: {

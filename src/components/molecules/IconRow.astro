@@ -5,7 +5,7 @@ import Wrapper from '../utils/Wrapper.astro';
 
 interface Props {
   overline?: string;
-  headline: string;
+  headline?: string;
   list: {
     icon: string;
     headline: string;
@@ -22,7 +22,7 @@ const { overline, headline, list } = Astro.props;
       <Text Htmltag="div" size="s" text={overline} hasLetterSpacing className="uppercase mb-6" />
     )
   }
-  <Text Htmltag="h2" size="m" text={headline} isBlack className="mb-12 xl:w-4/6" />
+  {headline && <Text Htmltag="h2" size="m" text={headline} isBlack className="mb-12 xl:w-4/6" />}
   <ol class="grid list-none gap-12 bg-white xl:grid-cols-3">
     {
       list.map((item) => (

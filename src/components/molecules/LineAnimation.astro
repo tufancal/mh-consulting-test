@@ -37,7 +37,16 @@ const lineClass = 'px-2 py-1 bg-mh-yellow w-max';
                 className={`absolute top-[200%] left-0 ${lineClass}`}
               />
             );
-
+          case 3:
+            return (
+              <Text
+                isBlack
+                Htmltag="div"
+                size="xl"
+                text={text}
+                className={`absolute top-[300%] left-0 ${lineClass}`}
+              />
+            );
           default:
             break;
         }
@@ -48,7 +57,7 @@ const lineClass = 'px-2 py-1 bg-mh-yellow w-max';
       Htmltag="div"
       size="xl"
       text={texts[0]}
-      className={`absolute top-[300%] left-0 ${lineClass}`}
+      className={`absolute top-[400%] left-0 ${lineClass}`}
     />
   </div>
 </div>
