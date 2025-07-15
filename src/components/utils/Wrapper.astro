@@ -5,6 +5,7 @@ interface Props {
   variant: 'light' | 'primary' | 'primary-light';
   hasOverflow?: boolean;
   hasOverflow2xl?: boolean;
+  hasMarginBottom?: boolean;
 }
 
 let backgroundVariantClass = '';
@@ -20,9 +21,16 @@ switch (Astro.props.variant) {
     break;
 }
 
-const { className, id, hasOverflow = false, hasOverflow2xl = false } = Astro.props;
+const {
+  className,
+  id,
+  hasOverflow = false,
+  hasOverflow2xl = false,
+  hasMarginBottom = true,
+} = Astro.props;
 const overflowClass = hasOverflow ? 'overflow-hidden' : '';
 const overflow2xlClass = hasOverflow2xl ? '2xl:overflow-hidden' : '';
+const marginBottomClass = hasMarginBottom ? 'mb-12 xl:mb-40' : '';
 ---
 
 <section
@@ -34,7 +42,7 @@ const overflow2xlClass = hasOverflow2xl ? '2xl:overflow-hidden' : '';
     backgroundVariantClass,
   ]}
 >
-  <div class:list={['max-w-wrapper', 'mx-auto', 'mb-12', 'xl:mb-40', className]}>
+  <div class:list={[className, 'max-w-wrapper', 'mx-auto', marginBottomClass]}>
     <slot />
   </div>
 </section>

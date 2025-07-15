@@ -16,7 +16,13 @@ const { headline, logos } = Astro.props;
 ---
 
 <Wrapper variant="light">
-  <Text Htmltag="h2" size="l" text={headline} isBlack className="mb-12 xl:w-4/6" />
+  <Text
+    Htmltag="h2"
+    size="s"
+    text={headline}
+    hasLetterSpacing
+    className="mb-12 uppercase xl:w-4/6"
+  />
   <div class="flex w-full items-center overflow-hidden py-8" aria-label="Company Logos">
     <div class="flex min-w-max animate-[logo-row-scroll_20s_linear_infinite]">
       {

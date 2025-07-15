@@ -14,7 +14,7 @@ interface Props {
 const { overline, headline, list } = Astro.props;
 ---
 
-<Wrapper variant="light" id="leistungen" className="mb-12">
+<Wrapper variant="light" id="leistungen" className="mb-12 xl:mb-20" hasMarginBottom={false}>
   {
     overline && (
       <Text Htmltag="div" size="s" text={overline} hasLetterSpacing className="uppercase mb-6" />
